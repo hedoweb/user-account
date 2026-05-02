@@ -1,0 +1,30 @@
+# Dependencies
+/vendor/
+/node_modules/
+
+# Build artifacts
+*.min.css
+*.min.js
+/build/
+/dist/
+
+# WordPress specific
+*.log
+debug.log
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# IDE / editors
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# Uploaded files (ne pas versionner les avatars uploadés)
+/public/uploads/
+
+# Env / secrets
+.env
+.env.*
