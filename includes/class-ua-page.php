@@ -33,6 +33,19 @@ class UA_Page {
 	}
 
 	/**
+	 * Redirects to login if the account page is accessed while logged out.
+	 */
+	public static function maybe_redirect_to_login() {
+		if ( ! self::is_account_page() || is_user_logged_in() ) {
+			return;
+		}
+
+		$redirect_url = apply_filters( 'ua_redirect_url', wp_login_url( get_permalink() ) );
+		wp_safe_redirect( $redirect_url );
+		exit;
+	}
+
+	/**
 	 * Returns true when the current request is the account page.
 	 */
 	public static function is_account_page() {
