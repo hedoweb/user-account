@@ -30,6 +30,7 @@ class UA_Core {
 		require_once UA_PATH . 'includes/class-ua-page.php';
 		require_once UA_PATH . 'includes/class-ua-tabs.php';
 		require_once UA_PATH . 'includes/class-ua-dashboard.php';
+		require_once UA_PATH . 'includes/class-ua-profile.php';
 		require_once UA_PATH . 'includes/class-ua-shortcode.php';
 	}
 
@@ -37,6 +38,7 @@ class UA_Core {
 		add_action( 'init', array( $this, 'load_textdomain' ) );
 		add_action( 'init', array( 'UA_Shortcode', 'register' ) );
 		add_action( 'init', array( 'UA_Dashboard', 'register_tab' ) );
+		add_action( 'init', array( 'UA_Profile', 'register_tab' ) );
 		add_action( 'template_redirect', array( 'UA_Page', 'maybe_redirect_to_login' ) );
 	}
 
