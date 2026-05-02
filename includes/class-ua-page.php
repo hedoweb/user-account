@@ -13,8 +13,13 @@ class UA_Page {
 	 * Bails silently if the page already exists.
 	 */
 	public static function on_activation() {
-		if ( get_option( UA_PAGE_OPTION ) ) {
-			return;
+		$page_id = (int) get_option( UA_PAGE_OPTION );
+
+		if ( $page_id ) {
+			$page = get_post( $page_id );
+			if ( $page && 'trash' !== $page->post_status ) {
+				return;
+			}
 		}
 
 		$page_id = wp_insert_post(
