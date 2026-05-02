@@ -29,12 +29,14 @@ class UA_Core {
 	private function load_dependencies() {
 		require_once UA_PATH . 'includes/class-ua-page.php';
 		require_once UA_PATH . 'includes/class-ua-tabs.php';
+		require_once UA_PATH . 'includes/class-ua-dashboard.php';
 		require_once UA_PATH . 'includes/class-ua-shortcode.php';
 	}
 
 	private function register_hooks() {
 		add_action( 'init', array( $this, 'load_textdomain' ) );
 		add_action( 'init', array( 'UA_Shortcode', 'register' ) );
+		add_action( 'init', array( 'UA_Dashboard', 'register_tab' ) );
 		add_action( 'template_redirect', array( 'UA_Page', 'maybe_redirect_to_login' ) );
 	}
 
