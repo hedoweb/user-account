@@ -1,0 +1,259 @@
+/* ==========================================================================
+   User Account — front-end styles
+   ========================================================================== */
+
+/* ── Variables ────────────────────────────────────────────────────────────── */
+.ua-account-wrapper {
+	--ua-primary:   #2563eb;
+	--ua-text:      #111827;
+	--ua-muted:     #6b7280;
+	--ua-border:    #e5e7eb;
+	--ua-bg:        #f9fafb;
+	--ua-success:   #16a34a;
+	--ua-error:     #dc2626;
+	--ua-radius:    6px;
+
+	max-width: 760px;
+	font-family: inherit;
+	color: var(--ua-text);
+}
+
+/* ── Tab nav ──────────────────────────────────────────────────────────────── */
+.ua-tabs-nav ul {
+	display: flex;
+	list-style: none;
+	margin: 0;
+	padding: 0;
+	border-bottom: 2px solid var(--ua-border);
+}
+
+.ua-tab-link {
+	display: block;
+	padding: .6rem 1.25rem;
+	color: var(--ua-muted);
+	font-weight: 500;
+	text-decoration: none;
+	border-bottom: 2px solid transparent;
+	margin-bottom: -2px;
+	transition: color .15s, border-color .15s;
+}
+
+.ua-tab-link:hover,
+.ua-tab-link:focus {
+	color: var(--ua-primary);
+}
+
+.ua-tab-link.ua-tab-active {
+	color: var(--ua-primary);
+	border-bottom-color: var(--ua-primary);
+}
+
+/* ── Tab panels ───────────────────────────────────────────────────────────── */
+.ua-tab-panel {
+	display: none;
+	padding: 1.5rem 0;
+}
+
+.ua-tab-panel.ua-tab-active {
+	display: block;
+}
+
+/* ── Dashboard ────────────────────────────────────────────────────────────── */
+.ua-welcome {
+	font-size: 1.1rem;
+	margin: 0 0 1.25rem;
+}
+
+.ua-shortcuts {
+	display: flex;
+	flex-wrap: wrap;
+	gap: .75rem;
+	list-style: none;
+	margin: 0;
+	padding: 0;
+}
+
+.ua-shortcuts a {
+	display: inline-block;
+	padding: .5rem 1rem;
+	background: var(--ua-bg);
+	border: 1px solid var(--ua-border);
+	border-radius: var(--ua-radius);
+	color: var(--ua-text);
+	font-size: .9rem;
+	text-decoration: none;
+	transition: border-color .15s, background .15s;
+}
+
+.ua-shortcuts a:hover {
+	border-color: var(--ua-primary);
+	background: #eff6ff;
+}
+
+/* ── Forms ────────────────────────────────────────────────────────────────── */
+.ua-form {
+	max-width: 560px;
+}
+
+.ua-form-section {
+	margin-bottom: 1.5rem;
+}
+
+.ua-field {
+	margin-bottom: 1.25rem;
+}
+
+.ua-field label {
+	display: block;
+	margin-bottom: .35rem;
+	font-size: .9rem;
+	font-weight: 500;
+}
+
+.ua-field input[type="text"],
+.ua-field input[type="email"],
+.ua-field input[type="password"],
+.ua-field textarea {
+	width: 100%;
+	padding: .5rem .75rem;
+	border: 1px solid var(--ua-border);
+	border-radius: var(--ua-radius);
+	font-size: 1rem;
+	font-family: inherit;
+	color: var(--ua-text);
+	background: #fff;
+	box-sizing: border-box;
+	transition: border-color .15s, box-shadow .15s;
+}
+
+.ua-field input:focus,
+.ua-field textarea:focus {
+	outline: none;
+	border-color: var(--ua-primary);
+	box-shadow: 0 0 0 3px rgba(37, 99, 235, .15);
+}
+
+.ua-field-row {
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	gap: 1rem;
+}
+
+@media (max-width: 480px) {
+	.ua-field-row {
+		grid-template-columns: 1fr;
+	}
+}
+
+/* ── Avatar ───────────────────────────────────────────────────────────────── */
+.ua-avatar-wrap {
+	display: flex;
+	align-items: center;
+	gap: 1rem;
+	margin-bottom: 1.5rem;
+}
+
+.ua-avatar-preview {
+	width: 80px;
+	height: 80px;
+	border-radius: 50%;
+	object-fit: cover;
+	border: 2px solid var(--ua-border);
+	flex-shrink: 0;
+}
+
+.ua-avatar-actions {
+	display: flex;
+	flex-direction: column;
+	gap: .4rem;
+}
+
+/* ── Buttons ──────────────────────────────────────────────────────────────── */
+.ua-btn {
+	display: inline-block;
+	padding: .5rem 1.25rem;
+	border: 1px solid transparent;
+	border-radius: var(--ua-radius);
+	font-size: .9rem;
+	font-weight: 500;
+	font-family: inherit;
+	cursor: pointer;
+	text-decoration: none;
+	transition: background .15s, border-color .15s, color .15s;
+}
+
+.ua-btn--primary {
+	background: var(--ua-primary);
+	color: #fff;
+}
+
+.ua-btn--primary:hover {
+	background: #1d4ed8;
+}
+
+.ua-btn--primary:disabled {
+	opacity: .6;
+	cursor: not-allowed;
+}
+
+.ua-btn--secondary {
+	background: var(--ua-bg);
+	border-color: var(--ua-border);
+	color: var(--ua-text);
+}
+
+.ua-btn--secondary:hover {
+	border-color: var(--ua-primary);
+	color: var(--ua-primary);
+}
+
+.ua-btn--link {
+	background: none;
+	border: none;
+	padding: 0;
+	font-size: .85rem;
+	color: var(--ua-error);
+	cursor: pointer;
+	text-decoration: underline;
+	font-family: inherit;
+}
+
+/* ── Form footer ──────────────────────────────────────────────────────────── */
+.ua-form-footer {
+	display: flex;
+	align-items: center;
+	gap: 1rem;
+	margin-top: 1.5rem;
+}
+
+.ua-form-feedback {
+	font-size: .9rem;
+}
+
+.ua-form-feedback.ua-success { color: var(--ua-success); }
+.ua-form-feedback.ua-error   { color: var(--ua-error); }
+
+/* ── Misc ─────────────────────────────────────────────────────────────────── */
+.ua-separator {
+	border: none;
+	border-top: 1px solid var(--ua-border);
+	margin: 2rem 0;
+}
+
+.ua-section-title {
+	font-size: 1rem;
+	font-weight: 600;
+	margin: 0 0 1.25rem;
+}
+
+.ua-sr-only {
+	position: absolute;
+	width: 1px;
+	height: 1px;
+	padding: 0;
+	margin: -1px;
+	overflow: hidden;
+	clip: rect(0, 0, 0, 0);
+	white-space: nowrap;
+	border: 0;
+}
