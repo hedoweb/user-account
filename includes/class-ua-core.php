@@ -28,6 +28,7 @@ class UA_Core {
 
 	private function load_dependencies() {
 		require_once UA_PATH . 'includes/class-ua-page.php';
+		require_once UA_PATH . 'includes/class-ua-tabs.php';
 		require_once UA_PATH . 'includes/class-ua-shortcode.php';
 	}
 

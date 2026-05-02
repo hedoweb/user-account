@@ -3,7 +3,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-$current_user = wp_get_current_user();
+$active_tab = UA_Tabs::get_active_tab();
 ?>
 
 <?php do_action( 'ua_before_account' ); ?>
@@ -12,12 +12,12 @@ $current_user = wp_get_current_user();
 
 	<nav class="ua-tabs-nav" aria-label="<?php esc_attr_e( 'Account navigation', 'user-account' ); ?>">
 		<ul>
-			<!-- Tab nav items will be rendered here by UA_Tabs -->
+			<?php UA_Tabs::render_nav( $active_tab ); ?>
 		</ul>
 	</nav>
 
 	<div class="ua-tabs-content">
-		<!-- Tab content will be rendered here by UA_Tabs -->
+		<?php UA_Tabs::render_content( $active_tab ); ?>
 	</div>
 
 </div>
