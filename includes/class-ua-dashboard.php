@@ -9,6 +9,11 @@ if ( ! defined( 'ABSPATH' ) ) {
 class UA_Dashboard {
 
 	public static function register_tab() {
+		$active = get_option( 'ua_active_tabs', array( 'dashboard', 'profile' ) );
+		if ( ! in_array( 'dashboard', (array) $active, true ) ) {
+			return;
+		}
+
 		UA_Tabs::register(
 			'dashboard',
 			array(

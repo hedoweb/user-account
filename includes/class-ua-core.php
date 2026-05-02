@@ -33,6 +33,10 @@ class UA_Core {
 		require_once UA_PATH . 'includes/class-ua-profile.php';
 		require_once UA_PATH . 'includes/class-ua-ajax.php';
 		require_once UA_PATH . 'includes/class-ua-shortcode.php';
+
+		if ( is_admin() ) {
+			require_once UA_PATH . 'admin/class-ua-admin.php';
+		}
 	}
 
 	private function register_hooks() {
@@ -42,6 +46,10 @@ class UA_Core {
 		add_action( 'init', array( 'UA_Profile', 'register_tab' ) );
 		add_action( 'init', array( 'UA_Ajax', 'register' ) );
 		add_action( 'template_redirect', array( 'UA_Page', 'maybe_redirect_to_login' ) );
+
+		if ( is_admin() ) {
+			add_action( 'init', array( 'UA_Admin', 'init' ) );
+		}
 	}
 
 	public function load_textdomain() {
