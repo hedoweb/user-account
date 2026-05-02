@@ -1,0 +1,188 @@
+# Copyright (C) 2024 Stef
+# This file is distributed under the same license as the User Account plugin.
+msgid ""
+msgstr ""
+"Project-Id-Version: User Account 1.0.0\n"
+"Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/user-account\n"
+"POT-Creation-Date: 2024-01-01T00:00:00+00:00\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"Plural-Forms: nplurals=INTEGER; plural=EXPRESSION;\n"
+"X-Generator: WP-CLI 2.x\n"
+"X-Domain: user-account\n"
+
+#. Plugin Name of the plugin
+msgid "User Account"
+msgstr ""
+
+#. Plugin URI of the plugin
+msgid "Plugin URI"
+msgstr ""
+
+#. Description of the plugin
+msgid "Lightweight \"My Account\" page for logged-in WordPress users — no WooCommerce, no BuddyPress required."
+msgstr ""
+
+#. Author of the plugin
+msgid "Stef"
+msgstr ""
+
+#: includes/class-ua-page.php
+msgid "My Account"
+msgstr ""
+
+#: includes/class-ua-dashboard.php
+msgid "Dashboard"
+msgstr ""
+
+#: includes/class-ua-profile.php
+msgid "My Profile"
+msgstr ""
+
+#: includes/class-ua-ajax.php
+msgid "Not logged in."
+msgstr ""
+
+#: includes/class-ua-ajax.php
+msgid "Invalid email address."
+msgstr ""
+
+#: includes/class-ua-ajax.php
+msgid "This email is already in use."
+msgstr ""
+
+#: includes/class-ua-ajax.php
+msgid "Invalid file type. Please upload a JPG, PNG, GIF or WebP image."
+msgstr ""
+
+#: includes/class-ua-ajax.php
+msgid "Image must be smaller than 2 MB."
+msgstr ""
+
+#: includes/class-ua-ajax.php
+msgid "Please fill in all password fields."
+msgstr ""
+
+#: includes/class-ua-ajax.php
+msgid "New passwords do not match."
+msgstr ""
+
+#: includes/class-ua-ajax.php
+msgid "Current password is incorrect."
+msgstr ""
+
+#: includes/class-ua-ajax.php
+msgid "Profile updated."
+msgstr ""
+
+#: includes/class-ua-ajax.php
+msgid "Password updated."
+msgstr ""
+
+#: includes/class-ua-core.php
+msgid "Something went wrong. Please try again."
+msgstr ""
+
+#: admin/class-ua-admin.php
+msgid "User Account Settings"
+msgstr ""
+
+#: admin/class-ua-admin.php
+#: admin/views/settings-page.php
+msgid "User Account"
+msgstr ""
+
+#: public/views/account-wrapper.php
+msgid "Account navigation"
+msgstr ""
+
+#: public/views/tab-dashboard.php
+#. translators: %s: user display name
+msgid "Welcome, %s!"
+msgstr ""
+
+#: public/views/tab-profile.php
+msgid "Avatar"
+msgstr ""
+
+#: public/views/tab-profile.php
+msgid "Change avatar"
+msgstr ""
+
+#: public/views/tab-profile.php
+msgid "Remove"
+msgstr ""
+
+#: public/views/tab-profile.php
+msgid "First name"
+msgstr ""
+
+#: public/views/tab-profile.php
+msgid "Last name"
+msgstr ""
+
+#: public/views/tab-profile.php
+msgid "Email address"
+msgstr ""
+
+#: public/views/tab-profile.php
+msgid "Bio"
+msgstr ""
+
+#: public/views/tab-profile.php
+msgid "Save changes"
+msgstr ""
+
+#: public/views/tab-profile.php
+msgid "Change password"
+msgstr ""
+
+#: public/views/tab-profile.php
+msgid "Current password"
+msgstr ""
+
+#: public/views/tab-profile.php
+msgid "New password"
+msgstr ""
+
+#: public/views/tab-profile.php
+msgid "Confirm new password"
+msgstr ""
+
+#: public/views/tab-profile.php
+msgid "Update password"
+msgstr ""
+
+#: admin/views/settings-page.php
+msgid "Welcome message"
+msgstr ""
+
+#: admin/views/settings-page.php
+msgid "Use {display_name} to insert the user's name. HTML is allowed."
+msgstr ""
+
+#: admin/views/settings-page.php
+msgid "Quick links"
+msgstr ""
+
+#: admin/views/settings-page.php
+#. translators: %d: shortcut number (1, 2, 3)
+msgid "Shortcut %d"
+msgstr ""
+
+#: admin/views/settings-page.php
+msgid "Label"
+msgstr ""
+
+#: admin/views/settings-page.php
+msgid "Active tabs"
+msgstr ""
+
+#: admin/views/settings-page.php
+msgid "Tabs"
+msgstr ""
