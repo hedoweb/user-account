@@ -53,7 +53,7 @@ while ( count( $shortcuts ) < 3 ) {
 						printf(
 							/* translators: %d: shortcut number */
 							esc_html__( 'Shortcut %d', 'user-account' ),
-							$i + 1
+							absint( $i ) + 1
 						);
 						?>
 					</th>

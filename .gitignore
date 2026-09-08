@@ -22,7 +22,7 @@ Thumbs.db
 *.swp
 *.swo
 
-# Uploaded files (ne pas versionner les avatars uploadés)
+# Uploaded files (do not version uploaded avatars)
 /public/uploads/
 
 # Env / secrets

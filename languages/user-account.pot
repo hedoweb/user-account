@@ -1,10 +1,10 @@
-# Copyright (C) 2024 Stef
+# Copyright (C) 2026 Stef
 # This file is distributed under the same license as the User Account plugin.
 msgid ""
 msgstr ""
 "Project-Id-Version: User Account 1.0.0\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/user-account\n"
-"POT-Creation-Date: 2024-01-01T00:00:00+00:00\n"
+"POT-Creation-Date: 2026-09-08T00:00:00+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -54,6 +54,10 @@ msgstr ""
 
 #: includes/class-ua-ajax.php
 msgid "This email is already in use."
+msgstr ""
+
+#: includes/class-ua-ajax.php
+msgid "No file was uploaded."
 msgstr ""
 
 #: includes/class-ua-ajax.php

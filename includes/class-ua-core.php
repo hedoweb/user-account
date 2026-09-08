@@ -40,7 +40,6 @@ class UA_Core {
 	}
 
 	private function register_hooks() {
-		add_action( 'init', array( $this, 'load_textdomain' ) );
 		add_action( 'init', array( 'UA_Shortcode', 'register' ) );
 		add_action( 'init', array( 'UA_Dashboard', 'register_tab' ) );
 		add_action( 'init', array( 'UA_Profile', 'register_tab' ) );
@@ -83,14 +82,6 @@ class UA_Core {
 					'error' => __( 'Something went wrong. Please try again.', 'user-account' ),
 				),
 			)
-		);
-	}
-
-	public function load_textdomain() {
-		load_plugin_textdomain(
-			'user-account',
-			false,
-			dirname( plugin_basename( UA_PATH . 'user-account.php' ) ) . '/languages'
 		);
 	}
 }
