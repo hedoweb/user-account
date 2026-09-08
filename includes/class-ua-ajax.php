@@ -86,8 +86,19 @@ class UA_Ajax {
 	// Avatar upload (private helper)
 	// -------------------------------------------------------------------------
 
+	/**
+	 * Called only from save_profile(), which already verified the
+	 * ua_save_profile nonce — no separate nonce check needed here.
+	 * $_FILES values are passed as-is to wp_check_filetype_and_ext()
+	 * and wp_handle_upload(), which perform their own validation;
+	 * sanitize_text_field() would corrupt a legitimate tmp_name path.
+	 */
 	private static function handle_avatar_upload() {
 		require_once ABSPATH . 'wp-admin/includes/file.php';
+
+		if ( ! isset( $_FILES['ua_avatar_file'] ) ) { // phpcs:ignore WordPress.Security.NonceVerification.Missing -- nonce verified in caller save_profile().
+			return new WP_Error( 'no_file', __( 'No file was uploaded.', 'user-account' ) );
+		}
 
 		$allowed_mimes = array(
 			'jpg|jpeg' => 'image/jpeg',
@@ -96,11 +107,9 @@ class UA_Ajax {
 			'webp'     => 'image/webp',
 		);
 
-		$file_info = wp_check_filetype_and_ext(
-			$_FILES['ua_avatar_file']['tmp_name'],
-			$_FILES['ua_avatar_file']['name'],
-			$allowed_mimes
-		);
+		$file = $_FILES['ua_avatar_file']; // phpcs:ignore WordPress.Security.NonceVerification.Missing, WordPress.Security.ValidatedSanitizedInput.InputNotSanitized -- nonce verified in caller; validated below.
+
+		$file_info = wp_check_filetype_and_ext( $file['tmp_name'], $file['name'], $allowed_mimes );
 
 		if ( ! $file_info['type'] ) {
 			return new WP_Error(
@@ -110,7 +119,7 @@ class UA_Ajax {
 		}
 
 		// 2 MB limit.
-		if ( $_FILES['ua_avatar_file']['size'] > 2 * MB_IN_BYTES ) {
+		if ( $file['size'] > 2 * MB_IN_BYTES ) {
 			return new WP_Error(
 				'file_too_large',
 				__( 'Image must be smaller than 2 MB.', 'user-account' )
@@ -118,7 +127,7 @@ class UA_Ajax {
 		}
 
 		$uploaded = wp_handle_upload(
-			$_FILES['ua_avatar_file'],
+			$file,
 			array(
 				'test_form' => false,
 				'mimes'     => $allowed_mimes,
@@ -144,9 +153,12 @@ class UA_Ajax {
 			wp_send_json_error( array( 'message' => __( 'Not logged in.', 'user-account' ) ) );
 		}
 
-		$current  = isset( $_POST['current_password'] ) ? wp_unslash( $_POST['current_password'] ) : '';
-		$new      = isset( $_POST['new_password'] )     ? wp_unslash( $_POST['new_password'] )     : '';
-		$confirm  = isset( $_POST['confirm_password'] ) ? wp_unslash( $_POST['confirm_password'] ) : '';
+		// Passwords are intentionally left unsanitized — sanitize_text_field()
+		// would strip characters a user legitimately chose for their password.
+		// wp_check_password()/wp_set_password() handle the raw value safely.
+		$current  = isset( $_POST['current_password'] ) ? wp_unslash( $_POST['current_password'] ) : ''; // phpcs:ignore WordPress.Security.ValidatedSanitizedInput.InputNotSanitized
+		$new      = isset( $_POST['new_password'] )     ? wp_unslash( $_POST['new_password'] )     : ''; // phpcs:ignore WordPress.Security.ValidatedSanitizedInput.InputNotSanitized
+		$confirm  = isset( $_POST['confirm_password'] ) ? wp_unslash( $_POST['confirm_password'] ) : ''; // phpcs:ignore WordPress.Security.ValidatedSanitizedInput.InputNotSanitized
 
 		if ( ! $current || ! $new || ! $confirm ) {
 			wp_send_json_error( array( 'message' => __( 'Please fill in all password fields.', 'user-account' ) ) );

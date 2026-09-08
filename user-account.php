@@ -5,10 +5,13 @@
  * Description:       Lightweight "My Account" page for logged-in WordPress users, no dependencies required.
  * Version:           1.0.0
  * Requires at least: 6.0
+ * Tested up to:      7.1
  * Requires PHP:      7.4
- * Author:            Esperluat
+ * Author:            Stef
  * Text Domain:       user-account
  * Domain Path:       /languages
+ * License:           GPL v2 or later
+ * License URI:       https://www.gnu.org/licenses/gpl-2.0.html
  */
 
 if ( ! defined( 'ABSPATH' ) ) {

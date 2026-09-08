@@ -1,0 +1,13 @@
+/.git
+/.gitignore
+/.distignore
+/.wp-env.json
+/CLAUDE.md
+/.github
+/tests
+/node_modules
+/.wordpress-org
+.editorconfig
+.DS_Store
+Thumbs.db
+*.log
