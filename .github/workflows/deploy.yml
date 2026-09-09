@@ -1,0 +1,35 @@
+name: Deploy to WordPress.org
+
+on:
+  push:
+    tags:
+      - "[0-9]+.[0-9]+.[0-9]+"
+      - "v[0-9]+.[0-9]+.[0-9]+"
+  workflow_dispatch: {}
+
+jobs:
+  deploy:
+    name: Build and push to the .org SVN repo
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      # Sanity check: the tag being pushed must match the "Version:" header
+      # in the plugin file, otherwise trunk and the new SVN tag would diverge
+      # from what readme.txt/user-account.php claim.
+      - name: Verify tag matches plugin version
+        run: |
+          TAG="${GITHUB_REF_NAME#v}"
+          PLUGIN_VERSION=$(grep -m1 "^Version:" user-account.php | awk '{print $2}' | tr -d '\r')
+          if [ "$TAG" != "$PLUGIN_VERSION" ]; then
+            echo "Tag ($TAG) does not match plugin Version header ($PLUGIN_VERSION)."
+            exit 1
+          fi
+
+      - name: WordPress Plugin Deploy
+        uses: 10up/action-wordpress-plugin-deploy@stable
+        env:
+          SVN_USERNAME: ${{ secrets.SVN_USERNAME }}
+          SVN_PASSWORD: ${{ secrets.SVN_PASSWORD }}
+          SLUG: user-account
